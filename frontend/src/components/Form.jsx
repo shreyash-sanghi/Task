@@ -29,7 +29,7 @@ const Form = ()=>{
         e.preventDefault() ;
       const {Date,Task1,Task2,Task3,Task4,Task5} = initial;
       try {
-          const response = await axios.post("http://localhost:1234/setdata",{ 
+          const response = await axios.post("https://task-backend-ecru.vercel.app/setdata",{ 
           Date,Task1,Task2,Task3,Task4,Task5
           })
           console.log(response)

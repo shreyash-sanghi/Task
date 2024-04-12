@@ -20,7 +20,7 @@ const MainDashboard = ()=>{
     ])
 const getdata = async()=>{
  try {
-  const result = await axios.get(`http://localhost:1234/getdata/${name}`);
+  const result = await axios.get(`https://task-backend-ecru.vercel.app/getdata/${name}`);
    
   result.data.map((info)=>{
     console.log(info.somyavalue)
@@ -64,7 +64,7 @@ getdata();
 },[])
     const updatedata = async(id,value)=>{
       console.log(value)
-        const respponse = await axios.post(`http://localhost:1234/updatedata/${name}`,{
+        const respponse = await axios.post(`https://task-backend-ecru.vercel.app/updatedata/${name}`,{
             id,value
         })
     alert("success")

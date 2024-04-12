@@ -18,7 +18,7 @@ const Task = ()=>{
     ])
 const getdata = async()=>{
  try {
-  const result = await axios.get(`http://localhost:1234/getdata/${partnername}`);
+  const result = await axios.get(`https://task-backend-ecru.vercel.app/getdata/${partnername}`);
   result.data.map((info)=>{
     if(info.somyavalue === undefined){
       final((respon)=>[
