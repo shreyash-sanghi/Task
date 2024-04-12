@@ -15,7 +15,7 @@ const BookingData = new mongoose.Schema(
            type: String,
            require:true,
            unique:true
-        },Task1:String,Task2:String,Task3:String,Task4:String,Task5:String
+        },Task1:[String],Task2:[String],Task3:[String],Task4:[String]
        } 
 )
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import gif from "../../public/2.mp4";
 const Form = ()=>{
@@ -11,7 +11,10 @@ const Form = ()=>{
         Task2:"",
         Task3:"",
         Task4:"",
-        Task5:"",
+        Link1:"",
+        Link2:"",
+        Link3:"",
+        Link4:"",
      })
  
     const setdata = (e)=>{
@@ -27,10 +30,11 @@ const Form = ()=>{
 
     const savedata = async(e)=>{
         e.preventDefault() ;
-      const {Date,Task1,Task2,Task3,Task4,Task5} = initial;
+      let {Date,Task1,Task2,Task3,Task4,Link1,Link2,Link3,Link4} = initial;
+
       try {
           const response = await axios.post("https://task-backend-ecru.vercel.app/setdata",{ 
-          Date,Task1,Task2,Task3,Task4,Task5
+            Date,Task1,Task2,Task3,Task4,Link1,Link2,Link3,Link4
           })
           console.log(response)
         alert("Success")
@@ -65,14 +69,26 @@ const Form = ()=>{
 						<label class="block text-md mb-2" for="password">Date</label>
 						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="date" name="Date" placeholder="Date"/>
                     </div>		
-            <div className='flex flex-col  sm:flex-row w-full justify-evenly items-center'>
+
+   
+                    <div className='flex sm:flex-row flex-col  justify-evenly items-center'>
 					<div class="mt-5 w-[98%] sm:w-auto mx-2">
-						<label class="block w-full text-md mb-2" for="password">Task 1</label>
-						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task1" placeholder="text---"/>
+						<label class="block text-md mb-2" for="password">Task 1</label>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task1" placeholder="text--"/>
                     </div>		
 					<div class="mt-5 w-[98%] sm:w-auto mx-2">
+						<label class="block text-md mb-2" for="password">Link 1</label>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Link1" placeholder="text--"/>
+                    </div>	
+                    </div>	
+                    <div className='flex sm:flex-row flex-col  justify-evenly items-center'>
+					<div class="mt-5 w-[98%] sm:w-auto mx-2">
 						<label class="block text-md mb-2" for="password">Task 2</label>
-						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task2" placeholder="text---"/>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task2" placeholder="text--"/>
+                    </div>		
+					<div class="mt-5 w-[98%] sm:w-auto mx-2">
+						<label class="block text-md mb-2" for="password">Link 2</label>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Link2" placeholder="text--"/>
                     </div>	
                     </div>	
                     <div className='flex sm:flex-row flex-col  justify-evenly items-center'>
@@ -81,14 +97,24 @@ const Form = ()=>{
 						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task3" placeholder="text--"/>
                     </div>		
 					<div class="mt-5 w-[98%] sm:w-auto mx-2">
+						<label class="block text-md mb-2" for="password">Link 3</label>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Link3" placeholder="text--"/>
+                    </div>	
+                    </div>	
+                    <div className='flex sm:flex-row flex-col  justify-evenly items-center'>
+					<div class="mt-5 w-[98%] sm:w-auto mx-2">
 						<label class="block text-md mb-2" for="password">Task 4</label>
 						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task4" placeholder="text--"/>
-                    </div>	
-                    </div>	
-					<div class="mt-5 w-[98%]">
-						<label class="block text-md mb-2" for="password">Task 5</label>
-						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Task5" placeholder="text--"/>
                     </div>		
+					<div class="mt-5 w-[98%] sm:w-auto mx-2">
+						<label class="block text-md mb-2" for="password">Link 4</label>
+						<input onChange={setdata} class="px-4 w-full text-lg border-2 py-1 rounded-md  text-black outline-none" type="text" name="Link4" placeholder="text--"/>
+                    </div>	
+                    </div>	
+		
+
+      	
+		
                     <button onClick={savedata} className='w-full py-2 font-bold border-2 mt-5 rounded-md'>Save</button>	
 		 		</form>
 

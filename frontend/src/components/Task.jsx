@@ -13,24 +13,27 @@ const Task = ()=>{
       Task2:"",
       Task3:"",
       Task4:"",
-      Task5:"",
     }
     ])
 const getdata = async()=>{
  try {
   const result = await axios.get(`https://task-backend-ecru.vercel.app/getdata/${partnername}`);
   result.data.map((info)=>{
+    let Date = info.Date;
+    Date = Date.split("-");
+   Date = `${Date[2]}/${Date[1]}`;
+   console.log(Date)
     if(info.somyavalue === undefined){
       final((respon)=>[
         ...respon,{
           id:info._id,
           value:info.shreyashvalue,
-          Date:info.Date,
-          Task1:info.Task1,
-          Task2:info.Task2,
-          Task3:info.Task3,
-          Task4:info.Task4,
-          Task5:info.Task5,
+          Date:Date,
+          Task1:info.Task1[0],
+          Task2:info.Task2[0],
+          Task3:info.Task3[0],
+          Task4:info.Task4[0],
+
         }
       ])
     }else{
@@ -38,12 +41,11 @@ const getdata = async()=>{
         ...respon,{
           id:info._id,
           value:info.somyavalue,
-          Date:info.Date,
-          Task1:info.Task1,
-          Task2:info.Task2,
-          Task3:info.Task3,
-          Task4:info.Task4,
-          Task5:info.Task5,
+          Date:Date,
+          Task1:info.Task1[0],
+          Task2:info.Task2[0],
+          Task3:info.Task3[0],
+          Task4:info.Task4[0],
         }
       ])
     }
@@ -236,50 +238,61 @@ getdata();
      <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div className='flex items-center'> 
-     {/* <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'    ></div> */}
-     <span className='ml-1 text-green-600 text-sm xl:text-lg  md::block'>Done</span>
+     {/* <svg class="w-5 h-5 text-gray-800 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>     */}
+ <span className='ml-1 text-green-600 text-sm xl:text-lg  md::block'>Done</span>
      </div>
      </div>
      </>):(<>
       <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div className='flex items-center'> 
-     {/* <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div> */}
+     {/* <div  className='bg-white border-2 border-black w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div> */}
      <span className='ml-1 text-red-400  text-sm xl:text-lg  md::block'>Not Done</span>
      </div>
      </div>     </>)} 
      {/* <input name="1" value={"off"} onChange={(e)=>console.log(e.target.value)} type='checkbox'></input> */}
    </div>
+   <div className='w-full h-0.5 my-2 bg-gray-600'></div>
+
    <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
+    {(info.Task1=="")?(<></>):(<>
      <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
        <span class="event-name">
          {info.Task1}
        </span>
      </div>
+     </>)}
+     {(info.Task2=="")?(<></>):(<>
      <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
        <span class="event-name">
         {info.Task2}
        </span>
      </div>
+     </>)}
+     {(info.Task3=="")?(<></>):(<>
      <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
        <span class="event-name">
         {info.Task3}
        </span>
      </div>
+     </>)}
+     {(info.Task4=="")?(<></>):(<>
      <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
        <span class="event-name">
         {info.Task4}
        </span>
      </div>
-
+     </>)}
    </div>
  </div>
 </td>

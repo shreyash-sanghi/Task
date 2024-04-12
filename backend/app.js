@@ -19,9 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.post("/setdata",async(req,res)=>{
     try {
 
-        const {Date,Task1,Task2,Task3,Task4,Task5} = req.body;
+        const {Date,Task1,Task2,Task3,Task4,Link1,Link2,Link3,Link4} = req.body;
         const value = "0";
-        const response = await ssdata.create({Date,Task1,Task2,Task3,Task4,Task5,shreyashvalue:value,somyavalue:value})
+        const response = await ssdata.create({Date,Task1:[Task1,Link1],Task2:[Task2,Link2],Task3:[Task3,Link3],Task4:[Task4,Link4],shreyashvalue:value,somyavalue:value})
         res.sendStatus(202);
     } catch (error) {
         console.log(error);

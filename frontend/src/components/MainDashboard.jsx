@@ -11,11 +11,11 @@ const MainDashboard = ()=>{
       id:"",
       Date:"",
       value:"",
-      Task1:"",
-      Task2:"",
-      Task3:"",
-      Task4:"",
-      Task5:"",
+      Task1:[],
+      Task2:[],
+      Task3:[],
+      Task4:[],
+
     }
     ])
 const getdata = async()=>{
@@ -23,19 +23,21 @@ const getdata = async()=>{
   const result = await axios.get(`https://task-backend-ecru.vercel.app/getdata/${name}`);
    
   result.data.map((info)=>{
-    console.log(info.somyavalue)
-    console.log(info.shreyashvalue)
+    let Date = info.Date;
+ 
+     Date = Date.split("-");
+    Date = `${Date[2]}/${Date[1]}`;
     if(info.somyavalue === undefined){
       final((respon)=>[
         ...respon,{
           id:info._id,
           value:info.shreyashvalue,
-          Date:info.Date,
-          Task1:info.Task1,
-          Task2:info.Task2,
-          Task3:info.Task3,
-          Task4:info.Task4,
-          Task5:info.Task5,
+          Date:Date,
+          Task1:[info.Task1[0],info.Task1[1]],
+          Task2:[info.Task2[0],info.Task2[1]],
+          Task3:[info.Task3[0],info.Task3[1]],
+          Task4:[info.Task4[0],info.Task4[1]],
+
         }
       ])
     }else{
@@ -43,12 +45,12 @@ const getdata = async()=>{
         ...respon,{
           id:info._id,
           value:info.somyavalue,
-          Date:info.Date,
-          Task1:info.Task1,
-          Task2:info.Task2,
-          Task3:info.Task3,
-          Task4:info.Task4,
-          Task5:info.Task5,
+          Date:Date,
+          Task1:[info.Task1[0],info.Task1[1]],
+          Task2:[info.Task2[0],info.Task2[1]],
+          Task3:[info.Task3[0],info.Task3[1]],
+          Task4:[info.Task4[0],info.Task4[1]],
+
         }
       ])
     }
@@ -70,29 +72,33 @@ getdata();
         const result = respponse.data.result;
         console.log(result);
 
-    alert("success")
+    // alert("success")
     final(()=>[{
       id:"",
       Date:"",
       value:"",
-      Task1:"",
-      Task2:"",
-      Task3:"",
-      Task4:"",
-      Task5:"",
+      Task1:[],
+      Task2:[],
+      Task3:[],
+      Task4:[],
+
     }])
     result.map((info)=>{
+      let Date = info.Date;
+ 
+      Date = Date.split("-");
+     Date = `${Date[2]}/${Date[1]}`;
       if(info.somyavalue === undefined){
         final((respon)=>[
           ...respon,{
             id:info._id,
             value:info.shreyashvalue,
-            Date:info.Date,
-            Task1:info.Task1,
-            Task2:info.Task2,
-            Task3:info.Task3,
-            Task4:info.Task4,
-            Task5:info.Task5,
+            Date:Date,
+            Task1:[info.Task1[0],info.Task1[1]],
+            Task2:[info.Task2[0],info.Task2[1]],
+            Task3:[info.Task3[0],info.Task3[1]],
+            Task4:[info.Task4[0],info.Task4[1]],
+
           }
         ])
       }else{
@@ -100,12 +106,12 @@ getdata();
           ...respon,{
             id:info._id,
             value:info.somyavalue,
-            Date:info.Date,
-            Task1:info.Task1,
-            Task2:info.Task2,
-            Task3:info.Task3,
-            Task4:info.Task4,
-            Task5:info.Task5,
+            Date:Date,
+            Task1:[info.Task1[0],info.Task1[1]],
+            Task2:[info.Task2[0],info.Task2[1]],
+            Task3:[info.Task3[0],info.Task3[1]],
+            Task4:[info.Task4[0],info.Task4[1]],
+
           }
         ])
       }
@@ -175,8 +181,12 @@ getdata();
                         </div>
                     </li>
                     <li class="relative px-2 py-1" x-data="{ Open : false  }">
-                        <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
+                        <div class="inline-flex items-center  w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
                             x-on:click="Open = !Open">
+                              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 15v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2m-8 1V4m0 12-4-4m4 4 4-4"/>
+</svg>
+
                             <span
                                 class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
                                 <span onClick={()=>{
@@ -325,59 +335,73 @@ getdata();
           console.log(info.value)
           if(!info.id) return null;
                 return(<>
- <td class="border-2 rounded-md  transition ml-2 p-2 xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
+ <td class="border-2 rounded-md  transition ml-2 pt-2  xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
  <div class="flex flex-col min-h-40 mx-auto xl:w-52  lg:w-48 md:w-44 sm:w-44 w-[70vw] xs:w-36   ">
    <div class="top flex items-center justify-evenly h-5 w-full">
      
      {(info.value === "1")?(<>
-     <div className='w-full flex justify-between'>
+     <div className='w-full px-2 flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div onClick={()=>updatedata(info.id,info.value)} className='flex items-center'> 
-     {console.log(info.value)}
-     <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'></div>
+     {/* <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'></div> */}
+     <svg class="w-5 h-5 text-gray-800 dark:text-green-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+</svg>
+
      <span className='ml-1 hidden text-sm xl:text-lg  md:block'>Done</span>
      </div>
      </div>
      </>):(<>
-      <div className='w-full flex justify-between'>
+      <div className='w-full px-1 flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div className='flex items-center' onClick={()=>updatedata(info.id,info.value)}> 
-     <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div>
+     <div  className='bg-white border-2 border-black  rounded-2xl ml-5 sm:ml-2 mt-1 w-4 h-4'   ></div>
      <span className='ml-1 text-red-400 hidden text-sm xl:text-lg md:block'>Not Done</span>
      </div>
      </div>     </>)} 
+
      {/* <input name="1" value={"off"} onChange={(e)=>console.log(e.target.value)} type='checkbox'></input> */}
    </div>
+     <div className='w-full h-0.5 my-2 bg-gray-600'></div>
    <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
+    {(info.Task1[0]=="")?(<></>):(<>
      <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
-       <span class="event-name">
-         {info.Task1}
-       </span>
+       <a href={info.Task1[1]} target='_main' class="event-name">
+         {info.Task1[0]}
+       </a>
      </div>
-     <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
-     >
-       <span class="event-name">
-        {info.Task2}
-       </span>
-     </div>
-     <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
-     >
-       <span class="event-name">
-        {info.Task3}
-       </span>
-     </div>
-     <div
-       class="event bg-purple-400 text-white rounded p-1 text-sm mb-1"
-     >
-       <span class="event-name">
-        {info.Task4}
-       </span>
-     </div>
+     </>)}
+     {(info.Task2[0]=="")?(<></>):(<>
 
+     <div
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
+     >
+       <a href={info.Task2[1]} target='_main' class="event-name">
+        {info.Task2[0]}
+       </a>
+     </div>
+     </>)}
+     {(info.Task3[0]=="")?(<></>):(<>
+
+     <div
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
+     >
+       <a href={info.Task3[1]} target='_main' class="event-name">
+        {info.Task3[0]}
+       </a>
+     </div>
+     </>)}
+     {(info.Task4[0]=="")?(<></>):(<>
+     <div
+       class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
+     >
+       <a href={info.Task4[1]} target='_main' class="event-name">
+        {info.Task4[0]}
+       </a>
+     </div>
+     </>)}
    </div>
  </div>
 </td>
