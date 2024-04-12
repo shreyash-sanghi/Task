@@ -320,7 +320,7 @@ getdata();
       <table class="flex flex-col items-center w-full">
    
         <tbody>
-            <div className='flex ml-9 flex-row w-full flex-wrap'>
+            <div className='flex xs:ml-9 flex-row w-full flex-wrap'>
         {initail.map((info,index)=>{
           console.log(info.value)
           if(!info.id) return null;
