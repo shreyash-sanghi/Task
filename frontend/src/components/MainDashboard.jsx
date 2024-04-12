@@ -68,8 +68,7 @@ getdata();
             id,value
         })
     alert("success")
-    window.location.reload();
-    
+   final(initail)
     }
 
     return(
