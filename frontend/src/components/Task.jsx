@@ -236,16 +236,16 @@ getdata();
      <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div className='flex items-center'> 
-     <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'    ></div>
-     <span className='ml-1 hidden text-sm xl:text-lg  md::block'>Done</span>
+     {/* <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'    ></div> */}
+     <span className='ml-1 bg-green-600 text-sm xl:text-lg  md::block'>Done</span>
      </div>
      </div>
      </>):(<>
       <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
      <div className='flex items-center'> 
-     <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div>
-     <span className='ml-1 text-red-400 hidden text-sm xl:text-lg  md::block'>Not Done</span>
+     {/* <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div> */}
+     <span className='ml-1 text-red-400  text-sm xl:text-lg  md::block'>Not Done</span>
      </div>
      </div>     </>)} 
      {/* <input name="1" value={"off"} onChange={(e)=>console.log(e.target.value)} type='checkbox'></input> */}
