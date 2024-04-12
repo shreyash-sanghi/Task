@@ -133,6 +133,30 @@ getdata();
                  
                         </div>
                     </li>
+                    <li class="relative px-2 py-1" x-data="{ Open : false  }">
+                        <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
+                            x-on:click="Open = !Open">
+                            <span
+                                class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
+                                </svg>
+                              
+                                <span onClick={()=>{
+                                  localStorage.removeItem("username")
+                              navigate(`/`)
+                                }
+                                  } class="ml-4">Log Out</span>
+                          
+                            </span>
+                        </div>
+
+                        <div >
+                 
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
