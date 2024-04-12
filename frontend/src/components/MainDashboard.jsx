@@ -71,7 +71,38 @@ getdata();
         console.log(result);
 
     alert("success")
-   final(result)
+    result.data.map((info)=>{
+      console.log(info.somyavalue)
+      console.log(info.shreyashvalue)
+      if(info.somyavalue === undefined){
+        final((respon)=>[
+          ...respon,{
+            id:info._id,
+            value:info.shreyashvalue,
+            Date:info.Date,
+            Task1:info.Task1,
+            Task2:info.Task2,
+            Task3:info.Task3,
+            Task4:info.Task4,
+            Task5:info.Task5,
+          }
+        ])
+      }else{
+        final((respon)=>[
+          ...respon,{
+            id:info._id,
+            value:info.somyavalue,
+            Date:info.Date,
+            Task1:info.Task1,
+            Task2:info.Task2,
+            Task3:info.Task3,
+            Task4:info.Task4,
+            Task5:info.Task5,
+          }
+        ])
+      }
+     
+    })
     }
 
     return(

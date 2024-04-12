@@ -45,14 +45,14 @@ app.post("/updatedata/:name",async(req,res)=>{
           const response = await ssdata.findByIdAndUpdate({_id:id},{
             $set:{shreyashvalue:value}   
         })
-        const result = await ssdata.find();
+        const result = await ssdata.find({},"-somyavalue")
         res.status(202).json({result});
         }
         else{
           const response = await ssdata.findByIdAndUpdate({_id:id},{
             $set:{somyavalue:value}   
         })
-        const result = await ssdata.find();
+        const result = await ssdata.find({},"-shreyashvalue")
         res.status(202).json({result});
         }
     } catch (error) {
