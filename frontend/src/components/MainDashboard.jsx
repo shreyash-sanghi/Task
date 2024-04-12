@@ -20,7 +20,7 @@ const MainDashboard = ()=>{
     ])
 const getdata = async()=>{
  try {
-  const result = await axios.get(`https://task-backend-ecru.vercel.app/getdata/${name}`);
+  const result = await axios.get(`http://localhost:1234/getdata/${name}`);
    
   result.data.map((info)=>{
     console.log(info.somyavalue)
@@ -64,7 +64,7 @@ getdata();
 },[])
     const updatedata = async(id,value)=>{
       console.log(value)
-        const respponse = await axios.post(`https://task-backend-ecru.vercel.app/updatedata/${name}`,{
+        const respponse = await axios.post(`http://localhost:1234/updatedata/${name}`,{
             id,value
         })
         const result = respponse.data.result;
@@ -294,7 +294,7 @@ getdata();
         </div>
     </header>
     <main class="">
-        <div class="grid  pb-10 mx-4 min-h-[90vh] text-black rounded-xl bg-gray-100 border-2 border-green-400">
+        <div class="grid  pb-10  min-h-[90vh] text-black rounded-xl bg-gray-100 border-2 border-green-400">
     <div class="wrapper bg-white rounded-xl shadow w-full ">
       <div class="header flex justify-between border-b p-2">
         <span class="text-lg font-bold">
@@ -325,7 +325,7 @@ getdata();
           console.log(info.value)
           if(!info.id) return null;
                 return(<>
- <td class="border-2 rounded-md  transition ml-2 mr-10 xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
+ <td class="border-2 rounded-md  transition sm:ml-2 pr-10 xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
  <div class="flex flex-col min-h-40 mx-auto xl:w-52  lg:w-48 md:w-44 sm:w-44 w-[70vw] xs:w-36   ">
    <div class="top flex items-center justify-evenly h-5 w-full">
      
