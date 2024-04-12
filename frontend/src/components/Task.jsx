@@ -22,7 +22,6 @@ const getdata = async()=>{
     let Date = info.Date;
     Date = Date.split("-");
    Date = `${Date[2]}/${Date[1]}`;
-   console.log(Date)
     if(info.somyavalue === undefined){
       final((respon)=>[
         ...respon,{
@@ -55,7 +54,7 @@ const getdata = async()=>{
   console.log(error);
  }
 }
-console.log(initail)
+
 useEffect(()=>{
 getdata();
 },[])

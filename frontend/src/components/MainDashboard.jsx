@@ -60,17 +60,15 @@ const getdata = async()=>{
   console.log(error);
  }
 }
-console.log(initail)
+
 useEffect(()=>{
 getdata();
 },[])
     const updatedata = async(id,value)=>{
-      console.log(value)
         const respponse = await axios.post(`https://task-backend-ecru.vercel.app/updatedata/${name}`,{
             id,value
         })
         const result = respponse.data.result;
-        console.log(result);
 
     // alert("success")
     final(()=>[{
@@ -332,7 +330,7 @@ getdata();
         <tbody>
             <div className='flex xs:ml-9 flex-row w-full flex-wrap'>
         {initail.map((info,index)=>{
-          console.log(info.value)
+
           if(!info.id) return null;
                 return(<>
  <td class="border-2 rounded-md  transition ml-2 pt-2  xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
