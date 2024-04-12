@@ -224,7 +224,7 @@ getdata();
       <table class="flex flex-col items-center w-full">
 
         <tbody>
-            <div className='flex sm:ml-9 flex-row w-full flex-wrap'>
+            <div className='flex xs::ml-9 flex-row w-full flex-wrap'>
             {initail.map((info,index)=>{
           if(!info.id) return null;
                 return(<>
