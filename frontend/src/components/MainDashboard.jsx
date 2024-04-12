@@ -64,16 +64,24 @@ getdata();
 },[])
     const updatedata = async(id,value)=>{
       console.log(value)
-        const respponse = await axios.post(`https://task-backend-ecru.vercel.app/updatedata/${name}`,{
+        const respponse = await axios.post(`https://task-backend-ecru.vercel.app/${name}`,{
             id,value
         })
-        const result = respponse.data;
+        const result = respponse.data.result;
         console.log(result);
 
     alert("success")
-    result.data.map((info)=>{
-      console.log(info.somyavalue)
-      console.log(info.shreyashvalue)
+    final(()=>[{
+      id:"",
+      Date:"",
+      value:"",
+      Task1:"",
+      Task2:"",
+      Task3:"",
+      Task4:"",
+      Task5:"",
+    }])
+    result.map((info)=>{
       if(info.somyavalue === undefined){
         final((respon)=>[
           ...respon,{
