@@ -64,7 +64,7 @@ getdata();
         <div class="text-white hidden sm:block w-[18vw]">
             <div class="flex p-2  bg-gray-800">
                 <div class="flex py-3 px-2 items-center">
-                    <p class="text-2xl text-green-500 font-semibold">SA</p> <p class="ml-2 font-semibold italic">
+                    <p class="text-2xl text-green-500 font-semibold">SJ</p> <p class="ml-2 font-semibold italic">
                     DASHBOARD</p>
                 </div>
             </div>
