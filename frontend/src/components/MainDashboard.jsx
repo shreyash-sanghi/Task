@@ -67,8 +67,11 @@ getdata();
         const respponse = await axios.post(`https://task-backend-ecru.vercel.app/updatedata/${name}`,{
             id,value
         })
+        const result = respponse.data.result;
+        console.log(result);
+
     alert("success")
-   final(initail)
+   final(result)
     }
 
     return(
