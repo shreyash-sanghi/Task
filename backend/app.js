@@ -7,7 +7,7 @@ const cors = require("cors");
 const ssdata = require("./src/models/userdata");
 app.use(cors(
     {
-      origin:"http://localhost:5173",
+      origin:"https://task1-psi-bice.vercel.app",
       methods: ["POST", "GET", "PATCH", "PUT", "DELETE"],
       credentials: true,
     }
