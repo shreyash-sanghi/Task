@@ -49,8 +49,17 @@ const Form = ()=>{
     	<div class="flex w-full lg:w-[80%] justify-end">
       <div class="bg-black min-h-screen mx-auto  flex justify-center items-center">
 				<form className=' w-full mx-auto flex flex-col items-center justify-center'>
-					<div>
+					<div className='flex justify-evenly items-center'>
 						<h1 class="text-2xl  font-bold">Fill data</h1>
+                         <span
+                                class="inline-flex items-center  text-sm font-semibold text-white hover:text-green-400">
+                                <span onClick={()=>{
+                                  localStorage.removeItem("username")
+                              navigate(`/`)
+                                }
+                                  } class="ml-4">Log Out</span>
+                          
+                            </span>
 					</div>
 					<div class="mt-5 w-[98%] mx-2">
 						<label class="block text-md mb-2" for="password">Date</label>
