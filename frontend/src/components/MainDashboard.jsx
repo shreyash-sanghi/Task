@@ -325,7 +325,7 @@ getdata();
           console.log(info.value)
           if(!info.id) return null;
                 return(<>
- <td class="border-2 rounded-md  transition sm:ml-2 pr-10 xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
+ <td class="border-2 rounded-md  transition ml-2  xs:mr-0 cursor-pointer mt-5 border-black duration-500  ">
  <div class="flex flex-col min-h-40 mx-auto xl:w-52  lg:w-48 md:w-44 sm:w-44 w-[70vw] xs:w-36   ">
    <div class="top flex items-center justify-evenly h-5 w-full">
      
