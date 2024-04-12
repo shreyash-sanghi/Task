@@ -332,19 +332,17 @@ getdata();
      {(info.value === "1")?(<>
      <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
-     <div className='flex items-center'> 
+     <div onClick={()=>updatedata(info.id,info.value)} className='flex items-center'> 
      {console.log(info.value)}
-     <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'    onClick={()=>updatedata(info.id,info.value)
-                                                                     
-    } ></div>
+     <div  className='bg-green-600 w-4 ml-5 sm:ml-2 rounded-2xl mt-1 h-4'></div>
      <span className='ml-1 hidden text-sm xl:text-lg  md:block'>Done</span>
      </div>
      </div>
      </>):(<>
       <div className='w-full flex justify-between'>
      <span class="text-gray-600">{info.Date}</span>
-     <div className='flex items-center'> 
-     <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'  onClick={()=>updatedata(info.id,info.value)} ></div>
+     <div className='flex items-center' onClick={()=>updatedata(info.id,info.value)}> 
+     <div  className='bg-red-700 w-4 rounded-2xl ml-5 sm:ml-2 mt-1 h-4'   ></div>
      <span className='ml-1 text-red-400 hidden text-sm xl:text-lg md:block'>Not Done</span>
      </div>
      </div>     </>)} 
