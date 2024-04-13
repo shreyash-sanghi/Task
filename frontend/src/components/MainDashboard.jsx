@@ -363,42 +363,42 @@ getdata();
      <div className='w-full h-0.5 my-2 bg-gray-600'></div>
    <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
     {(info.Task1[0]=="")?(<></>):(<>
-     <div
+     <a target='_main' href={info.Task1[1]}
        class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
-       <a href={info.Task1[1]} target='_main' class="event-name">
+       <div  class="event-name">
          {info.Task1[0]}
-       </a>
-     </div>
+       </div>
+     </a>
      </>)}
      {(info.Task2[0]=="")?(<></>):(<>
 
-     <div
+     <a target='_main' href={info.Task2[1]}
        class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
-       <a href={info.Task2[1]} target='_main' class="event-name">
+       <div  class="event-name">
         {info.Task2[0]}
-       </a>
-     </div>
+       </div>
+     </a>
      </>)}
      {(info.Task3[0]=="")?(<></>):(<>
 
-     <div
+     <a href={info.Task3[1]} target='_main'
        class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
-       <a href={info.Task3[1]} target='_main' class="event-name">
+       <div class="event-name">
         {info.Task3[0]}
-       </a>
-     </div>
+       </div>
+     </a>
      </>)}
      {(info.Task4[0]=="")?(<></>):(<>
-     <div
+     <a href={info.Task4[1]} target='_main'
        class="event bg-purple-400 mx-1 text-white rounded p-1 text-sm mb-1"
      >
-       <a href={info.Task4[1]} target='_main' class="event-name">
+       <div class="event-name">
         {info.Task4[0]}
-       </a>
-     </div>
+       </div>
+     </a>
      </>)}
    </div>
  </div>
